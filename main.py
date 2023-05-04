@@ -1,9 +1,13 @@
-from flask import Flask, redirect, render_templates, request
-app = Flask(__name__)
+from flask import Flask, redirect,render_template,request
 
-@app.route('/')
-def hello_world():
-    return('Hello World! \n CodeTree 입니다.')
+app=Flask(__name__)
+@app.route('/', methods=['GET','POST'])
+def main():
+    return render_template('main.html')
 
-if __name__ == '__main__':
+@app.route('/result', methods=['GET','POST'])
+def result():
+    return render_template('result.html')
+
+if __name__=='__main__':
     app.run()

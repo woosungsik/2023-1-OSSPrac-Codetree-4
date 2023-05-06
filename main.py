@@ -14,6 +14,7 @@ def result():
         result['Major'] = request.form.get('major')
         result['Email'] = request.form.get('email_id') + '@' + request.form.get('email_addr')
         result['Gender'] = request.form.get('gender')
+        result['ProgrammingLanguages'] = request.form.getlist('ProgrammingLanguages')
         return render_template('result.html', result = result)
 
 if __name__=='__main__':

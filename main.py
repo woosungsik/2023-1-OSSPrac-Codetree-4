@@ -7,7 +7,14 @@ def main():
 
 @app.route('/result', methods=['GET','POST'])
 def result():
-    return render_template('result.html')
+    if request.method == 'POST':
+        result = dict()
+        result['Name'] = request.form.get('name')
+        result['StudentNumber'] = request.form.get('StudentNumber')
+        result['Major'] = request.form.get('major')
+        result['Email'] = request.form.get('email_id') + '@' + request.form.get('email_addr')
+        result['Gender'] = request.form.get('gender')
+        return render_template('result.html', result = result)
 
 if __name__=='__main__':
     app.run()

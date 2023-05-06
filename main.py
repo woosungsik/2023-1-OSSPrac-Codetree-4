@@ -9,10 +9,16 @@ def main():
 
 @app.route('/result', methods=['GET','POST'])
 def result():
+    if request.form.get("delete row"):
+        result = list(data.values())
+        print(result)
+        
+        return render_template('result.html', result =  result)
+
     if request.method == 'POST':
         Students = dict()
         Students['name'] = request.form.get('name')
-        Students['StudentNumber'] = int(request.form.get('StudentNumber'))
+        Students['StudentNumber'] = request.form.get('StudentNumber')
         Students['major'] = request.form.get('major')
         Students['email'] = request.form.get('email_id') + '@' + request.form.get('email_addr')
         Students['gender'] = request.form.get('gender')

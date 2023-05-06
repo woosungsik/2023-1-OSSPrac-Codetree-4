@@ -11,16 +11,19 @@ def main():
 def result():
     if request.method == 'POST':
         Students = dict()
-        Students["name"] = request.form.get('name')
-        Students["StudentNumber"] = int(request.form.get('StudentNumber'))
-        Students["major"] = request.form.get('major')
-        Students["email"] = request.form.get('email_id') + '@' + request.form.get('email_addr')
-        Students["gender"] = request.form.getlist('gender')
-        Students["ProgrammingLanguages"] = ", ".join(request.form.getlist('ProgrammingLanguages'))
-    
+        Students['name'] = request.form.get('name')
+        Students['StudentNumber'] = int(request.form.get('StudentNumber'))
+        Students['major'] = request.form.get('major')
+        Students['email'] = request.form.get('email_id') + '@' + request.form.get('email_addr')
+        Students['gender'] = request.form.get('gender')
+        Students['ProgrammingLanguages'] = ", ".join(request.form.getlist('ProgrammingLanguages'))
+
         data[Students["StudentNumber"]] = Students
-        result = [data[key] for key in sorted(data)]
+        
+        result = list(data.values())
+        result.sort(key = lambda x: x["StudentNumber"])
+        
         return render_template('result.html', result =  result)
-    
+
 if __name__=='__main__':
     app.run(debug=True)

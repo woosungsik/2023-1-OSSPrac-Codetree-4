@@ -30,6 +30,12 @@ def result():
         result.sort(key = lambda x: x["StudentNumber"])
         
         return render_template('result.html', result =  result)
+    
+@app.route('/home')
+def home():
+   data.clear()
+   
+   return redirect('/')
 
 if __name__=='__main__':
     app.run(debug=True)

@@ -22,15 +22,15 @@
                
             </thead>
             <tbody>
-                {% for result in result %}
+                {% for data in result %}
                 <tr>
-                    <td>{{result['name']}}</td>
-                    <td>{{result['StudentNumber']}}</td>
-                    <td>{{result['major']}}</td>
-                    <td>{{result['email']}}</td>
-                    <td>{{result['gender']}}</td>
-                    <td>{{result['ProgrammingLanguages']}}</td>
-                    <td><input type="checkbox" name="studentNumber" value="{{ result['StudentNumber'] }}"></td>
+                    <td>{{data['name']}}</td>
+                    <td>{{data['StudentNumber']}}</td>
+                    <td>{{data['major']}}</td>
+                    <td>{{data['email']}}</td>
+                    <td>{{data['gender']}}</td>
+                    <td>{{data['ProgrammingLanguages']}}</td>
+                    <td><input type="checkbox" name="studentNumber" value="{{ result.index(data) }}"></td>
                 </tr>
                 {% endfor %}
             

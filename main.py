@@ -11,8 +11,10 @@ def main():
 def result():
     if request.form.get("delete row"):
         result = list(data.values())
-        print(result)
-        
+        result.sort(key = lambda x: x["StudentNumber"])
+        for i in reversed(request.form.getlist('studentNumber')):
+            del result[int(i)]
+
         return render_template('result.html', result =  result)
 
     if request.method == 'POST':

@@ -5,6 +5,11 @@
    
     <title>result page</title>
     
+    <script>
+        function addRow() {
+            window.location.href='/';
+        }
+    </script>
 </head>
 
 <body>
@@ -41,7 +46,7 @@
         </table>
         <p>
             <button type='submit' name="delete row" value="delete row" onclick="javascript: form.action='/result'">Delete Row</button>
-            <button type='button' value="add row">Add Row</button>
+            <button type='button' value="add row" onclick="addRow()">Add Row</button>
         </p>
         <p>
             <button type='button' value="home">Home</button>

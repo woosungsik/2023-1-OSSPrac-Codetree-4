@@ -10,11 +10,11 @@ def main():
 @app.route('/result', methods=['GET','POST'])
 def result():
     if request.form.get("delete row"):
+        for i in request.form.getlist('studentNumber'):
+            del data[i]
         result = list(data.values())
         result.sort(key = lambda x: x["StudentNumber"])
-        for i in reversed(request.form.getlist('studentNumber')):
-            del result[int(i)]
-
+        
         return render_template('result.html', result =  result)
 
     if request.method == 'POST':

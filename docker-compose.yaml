@@ -1,6 +1,6 @@
 version : "3.0"
 
 services: 
-  python-app: #
+  python-app: 
     image : ${DOCKER_USR}/codetree
     build : .

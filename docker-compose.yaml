@@ -1,8 +1,6 @@
 version : "3.0"
 
-services:
-  web:
-    build: .
-    image: ${DOCKER_USR}/codetree:3.0
-    ports:
-      - 80:80
+services: 
+  python-app: #
+    image : ${DOCKER_USR}/codetree
+    build : .
